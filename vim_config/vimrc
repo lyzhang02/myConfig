@@ -100,7 +100,6 @@ set fileencodings=utf-8,gb2312,gb18030,gbk,ucs-bom,cp936,latin1
 set enc=utf-8
 "set fileencoding=utf-8
 
-"colorscheme xcode
 hi ColorColumn ctermbg=red
 hi ColorColumn guibg=red
 nnoremap <leader>te :tabnew<CR>
@@ -108,7 +107,8 @@ nnoremap <leader>tn :tabn<CR>
 nnoremap <leader>tp :tabp<CR>
 nnoremap <leader>tc :tabc<CR>
 nnoremap <leader>bf :buffers<CR>
-"正则 () []
+
+inoremap <S-CR> <ESC>o
 inoremap <C-H> <BS>
 "彩色括号配对配置
 let g:rainbow_active=1
