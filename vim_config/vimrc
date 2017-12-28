@@ -49,7 +49,7 @@ Plugin 'addisonbean/vim-xcode-theme'
 Plugin 'sickill/vim-monokai'
 Plugin 'majutsushi/tagbar'
 Plugin 'rdnetto/YCM-Generator'
-Plugin 'JamshedVesuna/vim-markdown-preview'
+"Plugin 'JamshedVesuna/vim-markdown-preview'
 "Plugin 'lfilho/cosco.vim'
 "Plugin 'taglist.vim'
 " All of your Plugins must be added before the following line
@@ -238,13 +238,13 @@ nnoremap <leader>s :StripWhitespace<CR>
 "tagbar
 nnoremap <F8> :TagbarToggle<CR>
 
-"tags 
+"tags
 "CTRL-] 跳转到定义处
 "CTRL-T 跳回来
-nnoremap <leader>cg :!ctags -R --c++-kinds=+p --fields=+liaS --extra=+q --language-force=C++ 
+nnoremap <leader>cg :!ctags -R --c++-kinds=+p --fields=+liaS --extra=+q --language-force=C++
 nnoremap <leader>co :!cscope_gen.sh
 "cscope 查找之后利用 :cw 查看
-set cscopequickfix=s-,c-,d-,i-,t-,e- 
+set cscopequickfix=s-,c-,d-,i-,t-,e-
 "cscope -Rbkq
 "cscope command
 ":cs find {querytype} {name}
@@ -279,6 +279,6 @@ nmap <C-_>d :cs find d <C-R>=expand("<cword>")<CR><CR>
 
 
 "vim-markdown-preview-brower
-let vim_markdown_preview_browser='Firefox'
-let vim_markdowm_preview_hotkey='<C-m>'
-let vim_markdown_preview_github=1
+"let vim_markdown_preview_browser='Firefox'
+"let vim_markdowm_preview_hotkey='<C-m>'
+"let vim_markdown_preview_github=1
