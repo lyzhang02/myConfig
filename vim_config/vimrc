@@ -27,7 +27,6 @@ Plugin 'VundleVim/Vundle.vim'
 "different version somewhere else.
 "Plugin 'ascenator/L9', {'name': 'newL9'}
 
-Plugin 'fatih/vim-go'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'luochen1990/rainbow' "括号彩色配对
 Plugin 'Raimondi/delimitMate' "括号自动补全
@@ -35,21 +34,21 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 "Plugin 'tomasr/molokai' "molokai theme
 Plugin 'notpratheek/vim-luna'   "luna theme
-Plugin 'altercation/vim-colors-solarized'   "solarized theme
+"Plugin 'altercation/vim-colors-solarized'   "solarized theme
 Plugin 'mbbill/undotree'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter' "快速注释
 "Plugin 'jeaye/color_coded'  "代码彩色
 Plugin 'Yggdroot/indentLine'    "缩进提示
-""Plugin 'majutsushi/tagbar'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'ntpeters/vim-better-whitespace'
-Plugin 'muellan/am-colors'
+"Plugin 'muellan/am-colors'
 Plugin 'addisonbean/vim-xcode-theme'
 Plugin 'sickill/vim-monokai'
-Plugin 'majutsushi/tagbar'
-Plugin 'rdnetto/YCM-Generator'
-"Plugin 'JamshedVesuna/vim-markdown-preview'
+Plugin 'fatih/vim-go'
+Plugin 'Chiel92/vim-autoformat'
+"Plugin 'majutsushi/tagbar'
+"Plugin 'rdnetto/YCM-Generator'
 "Plugin 'lfilho/cosco.vim'
 "Plugin 'taglist.vim'
 " All of your Plugins must be added before the following line
@@ -106,10 +105,10 @@ nnoremap <leader>te :tabnew<CR>
 nnoremap <leader>tn :tabn<CR>
 nnoremap <leader>tp :tabp<CR>
 nnoremap <leader>tc :tabc<CR>
-nnoremap <leader>bf :buffers<CR>
+"nnoremap <leader>bf :buffers<CR>
 
-inoremap <S-CR> <ESC>o
-inoremap <C-H> <BS>
+inoremap <S-CR> <ESC>o  "insert mode下Shift-Enter直接下一行
+inoremap <C-H> <BS> "insert mode下Ctrl-H = Backspace
 "彩色括号配对配置
 let g:rainbow_active=1
 let g:rainbow_conf = {
@@ -228,6 +227,11 @@ let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'wa' "未指定查找开始目录时的起始模式
 let g:ctrlp_switch_buffer='Et' "当打开一个已经打开的文件时跳转过去而不是重新打开一个窗口
 let g:ctrlp_tabpage_position = 'ac' "在当前标签的后面打开新标签项
+"设设置ctrlp按键, CR为在新标签内打开, 双击左键为在当前标签打开
+let g:ctrlp_prompt_mappings = {
+    \ 'AcceptSelection("e")': ['<2-LeftMouse>'],
+    \ 'AcceptSelection("t")': ['<cr>'],
+    \ }
 
 "delimitMate
 let delimitMate_autoclose = 0
@@ -236,19 +240,27 @@ au FileType cpp,python,go let b:delimitMate_autoclose = 1
 "vim-better-whitespace
 nnoremap <leader>s :StripWhitespace<CR>
 "tagbar
-nnoremap <F8> :TagbarToggle<CR>
+"nnoremap <F8> :TagbarToggle<CR>
 
-"tags
+"vim-autoformat
+let g:formatterpath = [] "formatter路径, 在PATH中时不需要添加
+"let g:autoformat_autoindent = 0 "文件类型没有formatter时, 进行缩进,tab修改,删除trailing三种基本操作
+"let g:autoformat_retab = 0
+"let g:autoformat_remove_trailing_spaces = 0
+
+"ctags
 "CTRL-] 跳转到定义处
 "CTRL-T 跳回来
-nnoremap <leader>cg :!ctags -R --c++-kinds=+p --fields=+liaS --extra=+q --language-force=C++
-nnoremap <leader>co :!cscope_gen.sh
+"nnoremap <leader>cg :!ctags -R --c++-kinds=+p --fields=+liaS --extra=+q --language-force=C++
+
+"cscope
+"nnoremap <leader>co :!cscope_gen.sh
 "cscope 查找之后利用 :cw 查看
-set cscopequickfix=s-,c-,d-,i-,t-,e-
-"cscope -Rbkq
-"cscope command
-":cs find {querytype} {name}
-"{querytype} 即相对应于实际的cscope行接口数字，同时也相对应于nvi命令：
+"set cscopequickfix=s-,c-,d-,i-,t-,e-
+""cscope -Rbkq
+""cscope command
+"":cs find {querytype} {name}
+""{querytype} 即相对应于实际的cscope行接口数字，同时也相对应于nvi命令：
 "0或者s   ―― 查找这个C符号
 "1或者g  ―― 查找这个定义
 "2或者d  ―― 查找被这个函数调用的函数（们）
@@ -257,28 +269,23 @@ set cscopequickfix=s-,c-,d-,i-,t-,e-
 "6或者e  ―― 查找这个egrep匹配模式
 "7或者f   ―― 查找这个文件
 "8或者i   ―― 查找#include这个文件的文件（们）
-if has("cscope")
-    set csprg=/usr/bin/cscope
-    set csto=1
-    set cst
-    set nocsverb
-    if filereadable("cscope.out")
-        cscope add cscope.out
-    endif
-    set csverb
-endif
+"if has("cscope")
+    "set csprg=/usr/bin/cscope
+    "set csto=1
+    "set cst
+    "set nocsverb
+    "if filereadable("cscope.out")
+        "cscope add cscope.out
+    "endif
+    "set csverb
+"endif
 "cscope 快捷键
-nmap <C-_>s :cs find s <C-R>=expand("<cword>")<CR><CR>
-nmap <C-_>g :cs find g <C-R>=expand("<cword>")<CR><CR>
-nmap <C-_>c :cs find c <C-R>=expand("<cword>")<CR><CR>
-nmap <C-_>t :cs find t <C-R>=expand("<cword>")<CR><CR>
-nmap <C-_>e :cs find e <C-R>=expand("<cword>")<CR><CR>
-nmap <C-_>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
-nmap <C-_>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
-nmap <C-_>d :cs find d <C-R>=expand("<cword>")<CR><CR>
+"nmap <C-_>s :cs find s <C-R>=expand("<cword>")<CR><CR>
+"nmap <C-_>g :cs find g <C-R>=expand("<cword>")<CR><CR>
+"nmap <C-_>c :cs find c <C-R>=expand("<cword>")<CR><CR>
+"nmap <C-_>t :cs find t <C-R>=expand("<cword>")<CR><CR>
+"nmap <C-_>e :cs find e <C-R>=expand("<cword>")<CR><CR>
+"nmap <C-_>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
+"nmap <C-_>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
+"nmap <C-_>d :cs find d <C-R>=expand("<cword>")<CR><CR>"
 
-
-"vim-markdown-preview-brower
-"let vim_markdown_preview_browser='Firefox'
-"let vim_markdowm_preview_hotkey='<C-m>'
-"let vim_markdown_preview_github=1
