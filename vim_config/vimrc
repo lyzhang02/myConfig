@@ -107,8 +107,10 @@ nnoremap <leader>tp :tabp<CR>
 nnoremap <leader>tc :tabc<CR>
 "nnoremap <leader>bf :buffers<CR>
 
-inoremap <S-CR> <ESC>o  "insert mode下Shift-Enter直接下一行
-inoremap <C-H> <BS> "insert mode下Ctrl-H = Backspace
+"insert mode下Shift-Enter直接下一行
+inoremap <S-CR> <ESC>o
+"insert mode下Ctrl-H = Backspace
+inoremap <C-H> <BS>
 "彩色括号配对配置
 let g:rainbow_active=1
 let g:rainbow_conf = {
