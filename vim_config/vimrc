@@ -82,7 +82,9 @@ set softtabstop=4   "退格时4个空格当作一个缩进删除
 set shiftwidth=4    "缩进宽度4空格
 set incsearch
 set hlsearch "高亮查找结果
-set guifont=UbuntuMono\ Regular\ 13
+"set guifont=UbuntuMono\ Regular\ 13
+"set guifont=DejaVu\ Sans\ Mono\ 13
+set guifont=Liberation\ Mono\ Regular\ 13
 set showtabline=1
 set textwidth=80
 set colorcolumn=+1
