@@ -1,6 +1,7 @@
 #!/bin/bash
 
-#bash install.sh --clang-completer --go-completer
+# bash install.sh --clang-completer --go-completer
+
 # --clang-completer : turn on cpp completer
 # --go-completer : trun on golang completer. Go must be installed before.
 # --not-first-time: if set, will download dependencies for YouCompeleteMe, need sudo privilege

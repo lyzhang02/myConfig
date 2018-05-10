@@ -80,7 +80,8 @@ set expandtab   "加入的缩进用空格代替
 set tabstop=4   "读取的缩进用4空格代替
 set softtabstop=4   "退格时4个空格当作一个缩进删除
 set shiftwidth=4    "缩进宽度4空格
-set incsearch
+set incsearch "单词内部搜索
+set smartcase  "搜索小写字母忽略大小写，大写字母不忽略
 set hlsearch "高亮查找结果
 "set guifont=UbuntuMono\ Regular\ 13
 set guifont=DejaVu\ Sans\ Mono\ 13
@@ -293,3 +294,5 @@ let g:formatterpath = [] "formatter路径, 在PATH中时不需要添加
 "nmap <C-_>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
 "nmap <C-_>d :cs find d <C-R>=expand("<cword>")<CR><CR>"
 
+"vim-go
+let g:go_fmt_command = "goimports"
