@@ -114,6 +114,10 @@ nnoremap <leader>tc :tabc<CR>
 inoremap <S-CR> <ESC>o
 "insert mode下Ctrl-H = Backspace
 inoremap <C-H> <BS>
+
+"输入{} 自动换行
+inoremap <expr> <cr> getline(".")[col(".")-2:col(".")-1]=="{}" ? "<cr><esc>O" : "<cr>"
+
 "彩色括号配对配置
 let g:rainbow_active=1
 let g:rainbow_conf = {
