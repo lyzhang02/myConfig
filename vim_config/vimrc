@@ -234,7 +234,7 @@ nnoremap <leader>nt :NERDTree<CR>
 let NERDTreeWinPos='right'
 "CtrlP
 let g:ctrlp_map = '<C-p>'
-let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_cmd = 'CtrlPBuffer'
 let g:ctrlp_working_path_mode = 'wa' "未指定查找开始目录时的起始模式
 let g:ctrlp_switch_buffer='Et' "当打开一个已经打开的文件时跳转过去而不是重新打开一个窗口
 let g:ctrlp_tabpage_position = 'ac' "在当前标签的后面打开新标签项
