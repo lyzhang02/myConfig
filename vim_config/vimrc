@@ -47,6 +47,7 @@ Plugin 'addisonbean/vim-xcode-theme'
 "Plugin 'sickill/vim-monokai'
 Plugin 'fatih/vim-go'
 Plugin 'Chiel92/vim-autoformat'
+Plugin 'christoomey/vim-tmux-navigator'
 "Plugin 'majutsushi/tagbar'
 "Plugin 'rdnetto/YCM-Generator'
 "Plugin 'lfilho/cosco.vim'
@@ -205,15 +206,16 @@ nnoremap <leader>jdc :YcmCompleter GoToDeclaration<CR>
 let g:ycm_collect_identifiers_from_tags_files=1
 
 "vim-airline
-"let g:airline#extensions#tabline#enabled = 1
+"let g:airline#extensions#tabline#formatter = 'unique_tail'
+let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme ='luna'
 set laststatus=2
 
 "indentLine
 let g:indentLine_setColors = 0
 let g:indentLine_enabled = 1
-let g:indentLine_fileType = []
-let g:indentLine_fileTypeExclude = []
+"let g:indentLine_fileType = []
+"let g:indentLine_fileTypeExclude = []
 
 ""color_coded
 "let g:color_coded_enabled = 1
