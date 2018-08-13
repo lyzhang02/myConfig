@@ -96,7 +96,8 @@ if has('gui_running')
     colorscheme xcode
 else
     "colorscheme monokai
-    colorscheme desert
+    "colorscheme desert
+    colorscheme luna-term
 endif
 
 set fileencodings=utf-8,gb2312,gb18030,gbk,ucs-bom,cp936,latin1
