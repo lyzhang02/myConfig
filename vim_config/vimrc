@@ -29,7 +29,8 @@ Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'luochen1990/rainbow' "括号彩色配对
-Plugin 'Raimondi/delimitMate' "括号自动补全
+"Plugin 'Raimondi/delimitMate' "括号自动补全
+Plugin 'jiangmiao/auto-pairs'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 "Plugin 'tomasr/molokai' "molokai theme
