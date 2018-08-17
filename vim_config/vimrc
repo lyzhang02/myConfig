@@ -49,6 +49,7 @@ Plugin 'addisonbean/vim-xcode-theme'
 Plugin 'fatih/vim-go'
 Plugin 'Chiel92/vim-autoformat'
 Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'tpope/vim-obsession'
 "Plugin 'majutsushi/tagbar'
 "Plugin 'rdnetto/YCM-Generator'
 "Plugin 'lfilho/cosco.vim'
@@ -254,9 +255,9 @@ let g:ctrlp_prompt_mappings = {
     \ 'AcceptSelection("t")': ['<cr>'],
     \ }
 
-"delimitMate
-let delimitMate_autoclose = 0
-au FileType cpp,python,go let b:delimitMate_autoclose = 1
+""delimitMate
+"let delimitMate_autoclose = 0
+"au FileType cpp,python,go let b:delimitMate_autoclose = 1
 
 "vim-better-whitespace
 nnoremap <leader>s :StripWhitespace<CR>
