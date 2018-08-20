@@ -7,8 +7,9 @@ mkdir ~/.vim/bundle 2> /dev/null
 
 git clone --recursive https://github.com/lyzhang02/configs.git ~/.vim/configs
 
-ln -fs ~/.vim/configs/vim_config/vim_config/vimrc ~/vimrc
+ln -fs ~/.vim/configs/vim_config/vim_config/vimrc ~/.vim/vimrc
 ln -fs ~/.vim/configs/tmux_conf ~/.tmux.conf
+ln -fs ~/.vim/configs/vim_config/gvimrc ~/.vim/gvimrc
 tmux source-file ~/.tmux.conf
 cp -r ~/.vim/configs/vim_config/Vundle.vim ~/.vim/
 

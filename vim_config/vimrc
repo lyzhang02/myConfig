@@ -45,7 +45,7 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'ntpeters/vim-better-whitespace'
 "Plugin 'muellan/am-colors'
 Plugin 'addisonbean/vim-xcode-theme'
-"Plugin 'sickill/vim-monokai'
+Plugin 'sickill/vim-monokai'
 Plugin 'fatih/vim-go'
 Plugin 'Chiel92/vim-autoformat'
 Plugin 'christoomey/vim-tmux-navigator'
@@ -86,21 +86,14 @@ set shiftwidth=4    "缩进宽度4空格
 set incsearch "单词内部搜索
 set smartcase  "搜索小写字母忽略大小写，大写字母不忽略
 set hlsearch "高亮查找结果
-"set guifont=UbuntuMono\ Regular\ 13
-set guifont=DejaVu\ Sans\ Mono\ 13
 set showtabline=1
 set textwidth=80
 set colorcolumn=+1
 set fileformat=unix
 set t_Co=256
 set background=light
-if has('gui_running')
-    colorscheme xcode
-else
-    "colorscheme monokai
-    "colorscheme desert
-    colorscheme luna-term
-endif
+
+colorscheme luna-term
 
 set fileencodings=utf-8,gb2312,gb18030,gbk,ucs-bom,cp936,latin1
 set enc=utf-8
