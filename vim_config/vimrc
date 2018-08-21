@@ -149,13 +149,12 @@ let g:rainbow_conf = {
     \}
 
 "youcompleteme Ycm
-let g:ycm_python_binary_path = 'python3' "Ycm Python补全使用python3
 nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
 let g:ycm_min_num_of_chars_for_completion = 3 "至少3个字符启动补全，标识符补全，不是语义补全
 let g:ycm_min_num_identifier_candidate_chars = 3 "标识符补全候选项中至少显示3个字符
 
 "以下的文件类型列表都采用词典结构，value不重要，设为1即可
-let g:ycm_auto_trigger = 1 "关闭自动补全，用<C-Space>手动触发
+let g:ycm_auto_trigger = 1 "开启自动补全，用<C-Space>手动触发
 "let g:ycm_filetype_whitelist = {'*' : 1}
 "let g:ycm_filetype_blacklist   "补全得文件类型黑白名单
 "关闭语义补全的文件类型词典
@@ -181,7 +180,7 @@ let g:ycm_collect_identifiers_from_comments_and_strings = 0
 "收集tag内的符号，ctags 需要使用 --fields=+l 选项, 默认关闭该选项
 let g:ycm_collect_identifiers_from_tags_files = 0
 "ycmd server 采用的Python解释器
-"let g:ycm_server_python_interpreter = '/usr/bin/python3'
+let g:ycm_server_python_interpreter = 'python3'
 "不显示预览窗口
 set completeopt-=preview
 let g:ycm_add_preview_to_completeopt = 0
@@ -199,10 +198,10 @@ let g:ycm_key_invoke_completion = '<C-Space>'
 "光标在出错行时，显示详细错误内容
 let g:ycm_key_detailed_diagnostics = '<leader>d'
 ".ycm_extra_conf.py 全局路径
-let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
+let g:ycm_global_ycm_extra_conf = '~/.vim/ycm_extra_conf.py'
 "载入.ycm_extra_conf.py前进行确认
 let g:ycm_confirm_extra_conf =1
-let g:ycm_extra_conf_globlist = ['~/.vim/.ycm_extra_conf.py']
+let g:ycm_extra_conf_globallist = ['~/.vim/ycm_extra_conf.py']
 "跳转到定义或声明
 nnoremap <leader>jd :YcmCompleter GoTo<CR>
 nnoremap <leader>jdc :YcmCompleter GoToDeclaration<CR>
