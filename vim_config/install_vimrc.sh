@@ -1,7 +1,11 @@
 #!/bin/bash
 
-DIR=~/.myConfig
-ln -s  ${DIR}/vim_config ~/.vim
+mkdir ~/.vim 2> /dev/null
+mkdir -p ~/.vim/bundle/VundleVim 2> /dev/null
+
+ln -si ~/.myConfig/vim_config/vimrc ~/.vim/vimrc
+ln -si ~/.myConfig/vim_config/gvimrc ~/.vim/gvimrc
+cp -R ~/.myConfig/vim_config/Vundle.vim ~/.vim/bundle/Vundle.vim
 
 #vim +BundleInstall +qall
 #echo $?
