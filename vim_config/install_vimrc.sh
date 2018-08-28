@@ -1,17 +1,7 @@
 #!/bin/bash
 
-
-mkdir ~/.vim 2> /dev/null
-mkdir ~/.vim/bundle 2> /dev/null
 DIR=~/.myConfig
-
-echo "source ${DIR}/vim_config/vimrcs/plugins.vim
-source ${DIR}/vim_config/vimrcs/basic.vim" > ~/.vim/vimrc
-
-cp ~/.vim/vimrc ~/.vim/gvimrc
-echo "source ${DIR}/vim_config/vimrcs/gvimrc.vim" >> ~/.vim/gvimrc
-
-ln -s ${DIR}/vim_config/Vundle.vim ~/.vim/bundle/Vundle.vim
+ln -s  ${DIR}/vim_config ~/.vim
 
 #vim +BundleInstall +qall
 #echo $?
