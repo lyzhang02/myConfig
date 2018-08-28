@@ -5,6 +5,7 @@ mkdir -p ~/.vim/bundle/VundleVim 2> /dev/null
 
 ln -si ~/.myConfig/vim_config/vimrc ~/.vim/vimrc
 ln -si ~/.myConfig/vim_config/gvimrc ~/.vim/gvimrc
+ln -si ~/.myConfig/vim_config/ycm_extra_conf.py ~/.vim/ycm_extra_conf.py
 
 #echo $?
 #sudo apt install git build-essential cmake python-dev python3-dev
