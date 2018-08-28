@@ -3,7 +3,7 @@
 
 mkdir ~/.vim 2> /dev/null
 mkdir ~/.vim/bundle 2> /dev/null
-set DIR=~/.myConfigs
+DIR=~/.myConfig
 
 echo "source ${DIR}/vim_config/vimrcs/plugins.vim
 source ${DIR}/vim_config/vimrcs/basic.vim" > ~/.vim/vimrc
@@ -13,8 +13,8 @@ echo "source ${DIR}/vim_config/vimrcs/gvimrc.vim" >> ~/.vim/gvimrc
 
 ln -s ${DIR}/vim_config/Vundle.vim ~/.vim/bundle/Vundle.vim
 
-vim +BundleInstall +qall
-echo $?
+#vim +BundleInstall +qall
+#echo $?
 
 #YouCompleteMe
 #sudo apt install build-essential cmake python-dev python3-dev
