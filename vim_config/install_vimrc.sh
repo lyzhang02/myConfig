@@ -14,11 +14,11 @@ vim +BundleInstall +qall
 
 #YouCompleteMe
 if [ -d ~/.vim/bundle/YouCompleteMe ]; then
-    ./install.py --go-completer # [--clang-completer --system-libclang]
+    cd ~/.vim/bundle/YouCompleteMe ./install.py --go-completer # [--clang-completer --system-libclang]
 else
     echo "YouCompleteMe Fail"
 fi
 
 #vim-go
-vim +GoInstallBinaries
+#vim +GoInstallBinaries
 
