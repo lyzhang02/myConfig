@@ -1,4 +1,5 @@
-# configs  
-configuration files for tools, such as vim, etc.
-- run install.sh to fetch the vim plugins and bash plugins I use.
+# myConfig  
+configuration files for tools
+git clone https://github.com/lyzhang02/configs.git ~/.myConfig
+
 
