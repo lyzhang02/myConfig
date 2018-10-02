@@ -2,74 +2,44 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 "filetype on
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here') " let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+"set rtp+=~/.vim/plugged/vim-plug/plug.vim
+call plug#begin('~/.vim/plugged')
 
-" The following are examples of different formats supported.
-" Keep Plugin commands between vundle#begin/end.
-" plugin on GitHub repo
-"Plugin 'tpope/vim-fugitive'
-" plugin from http://vim-scripts.org/vim/scripts.html
-"Plugin 'L9'
-" Git plugin not hosted on GitHub
-"Plugin 'git://git.wincent.com/command-t.git'
-" git repos on your local machine (i.e. when working on your own plugin)
-"Plugin 'file:///home/gmarik/path/to/plugin'
-" The sparkup vim script is in a subdirectory of this repo called vim.
-" Pass the path to set the runtimepath properly.
-"Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-" Install L9 and avoid a Naming conflict if you've already installed a
-"different version somewhere else.
-"Plugin 'ascenator/L9', {'name': 'newL9'}
+Plug 'junegunn/vim-plug'
+Plug 'Valloric/YouCompleteMe'
+Plug 'luochen1990/rainbow' "括号彩色配对
+Plug 'jiangmiao/auto-pairs'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'notpratheek/vim-luna'   "luna theme
+Plug 'mbbill/undotree'
+Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdcommenter' "快速注释
+Plug 'Yggdroot/indentLine'    "缩进提示
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'ntpeters/vim-better-whitespace'
+Plug 'addisonbean/vim-xcode-theme'
+Plug 'sickill/vim-monokai'
+"Plug 'fatih/vim-go'
+Plug 'Chiel92/vim-autoformat'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'tpope/vim-obsession'
+"Plug 'tomasr/molokai' "molokai theme
+"Plug 'Raimondi/delimitMate' "括号自动补全
+"Plug 'altercation/vim-colors-solarized'   "solarized theme
+"Plug 'jeaye/color_coded'  "代码彩色
+"Plug 'majutsushi/tagbar'
+"Plug 'rdnetto/YCM-Generator'
+"Plug 'lfilho/cosco.vim'
+"Plug 'taglist.vim'
+" All of your Plugs must be added before the following line
 
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'luochen1990/rainbow' "括号彩色配对
-"Plugin 'Raimondi/delimitMate' "括号自动补全
-Plugin 'jiangmiao/auto-pairs'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-"Plugin 'tomasr/molokai' "molokai theme
-Plugin 'notpratheek/vim-luna'   "luna theme
-"Plugin 'altercation/vim-colors-solarized'   "solarized theme
-Plugin 'mbbill/undotree'
-Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/nerdcommenter' "快速注释
-"Plugin 'jeaye/color_coded'  "代码彩色
-Plugin 'Yggdroot/indentLine'    "缩进提示
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'ntpeters/vim-better-whitespace'
-"Plugin 'muellan/am-colors'
-Plugin 'addisonbean/vim-xcode-theme'
-Plugin 'sickill/vim-monokai'
-Plugin 'fatih/vim-go'
-Plugin 'Chiel92/vim-autoformat'
-Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'tpope/vim-obsession'
-"Plugin 'majutsushi/tagbar'
-"Plugin 'rdnetto/YCM-Generator'
-"Plugin 'lfilho/cosco.vim'
-"Plugin 'taglist.vim'
-" All of your Plugins must be added before the following line
-
-call vundle#end()            " required
+call plug#end()            " required
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
 filetype plugin on
 
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
-
-
+" ------Basic Configurations------
 let mapleader = ','
 
 syntax on "语法高亮
@@ -153,7 +123,8 @@ inoremap <C-H> <BS>
 "输入{} 自动换行
 inoremap <expr> <cr> getline(".")[col(".")-2:col(".")-1]=="{}" ? "<cr><esc>O" : "<cr>"
 
-au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif "Return to last eidt position when opening files
+"Return to last eidt position when opening files
+au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
 " Don't close window, when deleting a buffer
 command! Bclose call <SID>BufcloseCloseIt()
@@ -194,30 +165,32 @@ function! VisualSelection(direction, extra_filter) range
 endfunction
 
 
+" --------------Plugin Configurations--------------
 "彩色括号配对配置
 let g:rainbow_active=1
 let g:rainbow_conf = {
-    \   'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick'],
-    \   'ctermfgs': ['lightblue', 'lightyellow', 'lightcyan', 'lightmagenta'],
-    \   'operators': '_,_',
-    \   'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold'],
-    \   'separately': {
-    \       '*': {},
-    \       'tex': {
-    \           'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/'],
-    \       },
-    \       'lisp': {
-    \           'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick', 'darkorchid3'],
-    \       },
-    \       'vim': {
-    \           'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/', 'start=/{/ end=/}/ fold', 'start=/(/ end=/)/ containedin=vimFuncBody', 'start=/\[/ end=/\]/ containedin=vimFuncBody', 'start=/{/ end=/}/ fold containedin=vimFuncBody'],
-    \       },
-    \       'html': {
-    \           'parentheses': ['start=/\v\<((area|base|br|col|embed|hr|img|input|keygen|link|menuitem|meta|param|source|track|wbr)[ >])@!\z([-_:a-zA-Z0-9]+)(\s+[-_:a-zA-Z0-9]+(\=("[^"]*"|'."'".'[^'."'".']*'."'".'|[^ '."'".'"><=`]*))?)*\>/ end=#</\z1># fold'],
-    \       },
-    \       'css': 0,
-    \   }
-    \}
+            \   'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick'],
+            \   'ctermfgs': ['lightblue', 'lightyellow', 'lightcyan', 'lightmagenta'],
+            \   'operators': '_,_',
+            \   'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold'],
+            \   'separately': {
+            \       '*': {},
+            \       'tex': {
+            \           'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/'],
+            \       },
+            \       'lisp': {
+            \           'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick', 'darkorchid3'],
+            \       },
+            \       'vim': {
+            \           'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/', 'start=/{/ end=/}/ fold', 'start=/(/ end=/)/ containedin=vimFuncBody', 'start=/\[/ end=/\]/ containedin=vimFuncBody', 'start=/{/ end=/}/ fold containedin=vimFuncBody'],
+            \       },
+            \       'html': {
+            \           'parentheses': ['start=/\v\<((area|base|br|col|embed|hr|img|input|keygen|link|menuitem|meta|param|source|track|wbr)[ >])@!\z([-_:a-zA-Z0-9]+)(\s+[-_:a-zA-Z0-9]+(\=("[^"]*"|'."'".'[^'."'".']*'."'".'|[^ '."'".'"><=`]*))?)*\>/ end=#</\z1># fold'],
+            \       },
+            \       'css': 0,
+            \   }
+            \}
+
 
 "youcompleteme Ycm
 nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
@@ -226,32 +199,22 @@ let g:ycm_min_num_identifier_candidate_chars = 3 "标识符补全候选项中至
 
 "以下的文件类型列表都采用词典结构，value不重要，设为1即可
 let g:ycm_auto_trigger = 1 "开启自动补全，用<C-Space>手动触发
-"let g:ycm_filetype_whitelist = {'*' : 1}
-"let g:ycm_filetype_blacklist   "补全得文件类型黑白名单
-"关闭语义补全的文件类型词典
-"let g:ycm_filetype_specific_completion_to_disable
 "显示诊断提示符号
 let g:ycm_show_diagnostics_ui = 1
 "错误提示符号,若不设置
 let g:ycm_error_symbol = '>>'
 "警告提示符号,若不设置
 let g:ycm_warning_symbol = '>'
-"启用诊断提示
-let g:ycm_enable_diagnostic_sings = 1
-"启用诊断高亮，高亮存在问题的文字
-let g:ycm_enable_diagnostic_highlighting = 1
-"显示诊断的问题
-let g:ycm_echo_current_diagnostic = 1
-"
-let g:ycm_always_populate_location_list = 0
 let g:ycm_complete_in_comments = 1 "注释时也启用补全
 let g:ycm_complete_in_strings = 1 "字符串内也启用补全
-"不收集字符串和注释内的标识符
-let g:ycm_collect_identifiers_from_comments_and_strings = 0
 "收集tag内的符号，ctags 需要使用 --fields=+l 选项, 默认关闭该选项
 let g:ycm_collect_identifiers_from_tags_files = 0
 "ycmd server 采用的Python解释器
 let g:ycm_server_python_interpreter = 'python3'
+let g:ycm_python_interpreter_path='python3'
+"let g:ycm_extra_conf_vim_data = [
+"\ 'g:ycm_python_interpreter_path'
+"\]
 "不显示预览窗口
 set completeopt-=preview
 let g:ycm_add_preview_to_completeopt = 0
@@ -264,6 +227,7 @@ let g:ycm_max_diagnostics_to_display = 30
 "选择候选补全项的键
 let g:ycm_key_list_select_completion = ['<TAB>','<Down>']
 let g:ycm_key_list_previous_completion = ['<S-TAB>','<UP>']
+let g:ycm_key_list_stop_completion = ['<C-y>']
 "调用语义补全的选项
 let g:ycm_key_invoke_completion = '<C-Space>'
 "光标在出错行时，显示详细错误内容
@@ -271,12 +235,10 @@ let g:ycm_key_detailed_diagnostics = '<leader>d'
 ".ycm_extra_conf.py 全局路径
 let g:ycm_global_ycm_extra_conf = '~/.vim/ycm_extra_conf.py'
 "载入.ycm_extra_conf.py前进行确认
-let g:ycm_confirm_extra_conf =1
-let g:ycm_extra_conf_globallist = ['~/.vim/ycm_extra_conf.py']
+"let g:ycm_extra_conf_globallist = ['~/.vim/ycm_extra_conf.py']
 "跳转到定义或声明
 nnoremap <leader>jd :YcmCompleter GoTo<CR>
 nnoremap <leader>jdc :YcmCompleter GoToDeclaration<CR>
-
 "从tags中收集补全 可能会影响速度
 " ctags 需要 调用加上 --fields=+l
 " exuberant ctags format 默认对.h采用c++ 标签
@@ -305,6 +267,7 @@ let g:undotree_WindowLayout = 2
 "NERDtree
 nnoremap <leader>nt :NERDTree<CR>
 let NERDTreeWinPos='right'
+
 "CtrlP
 let g:ctrlp_map = '<C-p>'
 let g:ctrlp_cmd = 'CtrlPBuffer'
@@ -313,9 +276,9 @@ let g:ctrlp_switch_buffer='Et' "当打开一个已经打开的文件时跳转过
 let g:ctrlp_tabpage_position = 'ac' "在当前标签的后面打开新标签项
 "设设置ctrlp按键, CR为在新标签内打开, 双击左键为在当前标签打开
 let g:ctrlp_prompt_mappings = {
-    \ 'AcceptSelection("e")': ['<2-LeftMouse>'],
-    \ 'AcceptSelection("t")': ['<cr>'],
-    \ }
+            \ 'AcceptSelection("e")': ['<2-LeftMouse>'],
+            \ 'AcceptSelection("t")': ['<cr>'],
+            \ }
 
 ""delimitMate
 "let delimitMate_autoclose = 0
@@ -323,14 +286,22 @@ let g:ctrlp_prompt_mappings = {
 
 "vim-better-whitespace
 nnoremap <leader>s :StripWhitespace<CR>
+
 "tagbar
 "nnoremap <F8> :TagbarToggle<CR>
 
 "vim-autoformat
 let g:formatterpath = [] "formatter路径, 在PATH中时不需要添加
+let g:autoformat_verbosemode = 1
+let g:formatdef_goimports = '"goimports"'
+let g:formatdef_gofmt = '"gofmt"'
+let g:formatters_go = ['goimports', 'gofmt']
 "let g:autoformat_autoindent = 0 "文件类型没有formatter时, 进行缩进,tab修改,删除trailing三种基本操作
 "let g:autoformat_retab = 0
 "let g:autoformat_remove_trailing_spaces = 0
+
+"vim-go
+let g:go_fmt_command = "goimports"
 
 "ctags
 "CTRL-] 跳转到定义处
@@ -354,14 +325,14 @@ let g:formatterpath = [] "formatter路径, 在PATH中时不需要添加
 "7或者f   ―― 查找这个文件
 "8或者i   ―― 查找#include这个文件的文件（们）
 "if has("cscope")
-    "set csprg=/usr/bin/cscope
-    "set csto=1
-    "set cst
-    "set nocsverb
-    "if filereadable("cscope.out")
-        "cscope add cscope.out
-    "endif
-    "set csverb
+"set csprg=/usr/bin/cscope
+"set csto=1
+"set cst
+"set nocsverb
+"if filereadable("cscope.out")
+"cscope add cscope.out
+"endif
+"set csverb
 "endif
 "cscope 快捷键
 "nmap <C-_>s :cs find s <C-R>=expand("<cword>")<CR><CR>
@@ -373,5 +344,3 @@ let g:formatterpath = [] "formatter路径, 在PATH中时不需要添加
 "nmap <C-_>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
 "nmap <C-_>d :cs find d <C-R>=expand("<cword>")<CR><CR>"
 
-"vim-go
-let g:go_fmt_command = "goimports"
