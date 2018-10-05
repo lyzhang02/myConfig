@@ -41,33 +41,32 @@ SOURCE_EXTENSIONS = ['.cpp', '.cxx', '.cc', '.c', '.m', '.mm']
 # compilation database set (by default, one is not set).
 # CHANGE THIS LIST OF FLAGS. YES, THIS IS THE DROID YOU HAVE BEEN LOOKING FOR.
 flags = [
-        '-Wall',
-        '-Wextra',
-        '-Werror',
-        '-Wno-long-long',
-        '-Wno-variadic-macros',
-        '-fexceptions',
-        '-DNDEBUG',
-        # You 100% do NOT need -DUSE_CLANG_COMPLETER and/or -DYCM_EXPORT in your flags;
-        # only the YCM source code needs it.
-        '-DUSE_CLANG_COMPLETER',
-        '-DYCM_EXPORT=',
-        # THIS IS IMPORTANT! Without the '-x' flag, Clang won't know which language to
-        # use when compiling headers. So it will guess. Badly. So C++ headers will be
-        # compiled as C headers. You don't want that so ALWAYS specify the '-x' flag.
-        # For a C project, you would set this to 'c' instead of 'c++'.
-        '-x',
-        'c++',
-        '-isystem',
-        '/usr/include/c++/6',
-        ]
+    '-Wall',
+    '-Wextra',
+    '-Werror',
+    '-Wno-long-long',
+    '-Wno-variadic-macros',
+    '-fexceptions',
+    '-DNDEBUG',
+    # You 100% do NOT need -DUSE_CLANG_COMPLETER and/or -DYCM_EXPORT in your flags;
+    # only the YCM source code needs it.
+    # '-DUSE_CLANG_COMPLETER',
+    # '-DYCM_EXPORT=',
+    # THIS IS IMPORTANT! Without the '-x' flag, Clang won't know which language to
+    # use when compiling headers. So it will guess. Badly. So C++ headers will be
+    # compiled as C headers. You don't want that so ALWAYS specify the '-x' flag.
+    # For a C project, you would set this to 'c' instead of 'c++'.
+    '-x',
+    'c++',
+    '-isystem',
+    '/usr/include/c++/6/',
+]
 
 # Clang automatically sets the '-std=' flag to 'c++14' for MSVC 2015 or later,
 # which is required for compiling the standard library, and to 'c++11' for older
 # versions.
 if platform.system() != 'Windows':
     flags.append('-std=c++11')
-
 
 # Set this to the absolute path to the folder (NOT the file!) containing the
 # compile_commands.json file to use that instead of 'flags'. See here for
@@ -95,29 +94,29 @@ def IsHeaderFile(filename):
 def FindCorrespondingSourceFile(filename):
     if IsHeaderFile(filename):
         basename = os.path.splitext(filename)[0]
-    for extension in SOURCE_EXTENSIONS:
-        replacement_file = basename + extension
-    if os.path.exists(replacement_file):
-        return replacement_file
+        for extension in SOURCE_EXTENSIONS:
+            replacement_file = basename + extension
+            if os.path.exists(replacement_file):
+                return replacement_file
     return filename
 
 
 def Settings(**kwargs):
     if kwargs['language'] == 'cfamily':
         # If the file is a header, try to find the corresponding source file and
-    # retrieve its flags from the compilation database if using one. This is
-    # necessary since compilation databases don't have entries for header files.
-    # In addition, use this source file as the translation unit. This makes it
-    # possible to jump from a declaration in the header file to its definition
-    # in the corresponding source file.
+        # retrieve its flags from the compilation database if using one. This is
+        # necessary since compilation databases don't have entries for header files.
+        # In addition, use this source file as the translation unit. This makes it
+        # possible to jump from a declaration in the header file to its definition
+        # in the corresponding source file.
         filename = FindCorrespondingSourceFile(kwargs['filename'])
 
         if not database:
             return {
-                    'flags': flags,
-                    'include_paths_relative_to_dir': DIR_OF_THIS_SCRIPT,
-                    'override_filename': filename
-                    }
+                'flags': flags,
+                'include_paths_relative_to_dir': DIR_OF_THIS_SCRIPT,
+                'override_filename': filename
+            }
 
             compilation_info = database.GetCompilationInfoForFile(filename)
         if not compilation_info.compiler_flags_:
@@ -128,8 +127,8 @@ def Settings(**kwargs):
         final_flags = list(compilation_info.compiler_flags_)
 
         # NOTE:
-            # This is just for YouCompleteMe
-            # it's highly likely that your project
+        # This is just for YouCompleteMe
+        # it's highly likely that your project
         # does NOT need to remove the stdlib flag. DO NOT USE THIS IN YOUR
         # ycm_extra_conf IF YOU'RE NOT 100 % SURE YOU NEED IT.
         try:
@@ -138,31 +137,34 @@ def Settings(**kwargs):
             pass
 
         return {
-                'flags': final_flags,
-                'include_paths_relative_to_dir': compilation_info.compiler_working_dir_,
-                'override_filename': filename
-                }
+            'flags': final_flags,
+            'include_paths_relative_to_dir': compilation_info.compiler_working_dir_,
+            'override_filename': filename
+        }
 
-    # elif kwargs['language'] == 'python':
-        # return {
-                # 'interpreter_path': 'python3',
-                # 'sys_path': ['path1','path2'], 
-                # 这个sys_path的value会添加到YCM解释器sys_path的前面,
-                # 也可以通过PythonSysPath函数控制如何添加
-                # }
+    elif kwargs['language'] == 'python':
+        python_flags = {
+                'interpreter_path':'python3',
+                'sys_path':[]
+                }
+        client_data = kwargs['client_data']
+        if client_data['g:ycm_python_interpreter_path']:
+            python_flags['interpreter_path'] = client_data['g:ycm_python_interpreter_path']
+        if client_data['g:ycm_python_sys_path']:
+            python_flags['sys_path'] = client_data['g:ycm_python_sys_path']
+        return python_flags
     return {}
 
 
 # def GetStandardLibraryIndexInSysPath( sys_path ):
-  # for path in sys_path:
-    # if os.path.isfile( os.path.join( path, 'os.py' ) ):
-      # return sys_path.index( path )
-  # raise RuntimeError( 'Could not find standard library path in Python path.' )
-
+# for path in sys_path:
+# if os.path.isfile( os.path.join( path, 'os.py' ) ):
+# return sys_path.index( path )
+# raise RuntimeError( 'Could not find standard library path in Python path.' )
 
 # PythonSysPath函数控制如何向sys_path中添加路径
 # 一般不需要设置，在Settings中返回'sys_path'即可
 # def PythonSysPath( **kwargs ):
-  # sys_path = kwargs[ 'sys_path' ]
-  # sys_path.insert()
-  # return sys_path
+# sys_path = kwargs[ 'sys_path' ]
+# sys_path.insert()
+# return sys_path

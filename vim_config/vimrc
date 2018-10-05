@@ -191,30 +191,25 @@ let g:rainbow_conf = {
             \   }
             \}
 
-
 "youcompleteme Ycm
 nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
 let g:ycm_min_num_of_chars_for_completion = 3 "至少3个字符启动补全，标识符补全，不是语义补全
 let g:ycm_min_num_identifier_candidate_chars = 3 "标识符补全候选项中至少显示3个字符
 
-"以下的文件类型列表都采用词典结构，value不重要，设为1即可
-let g:ycm_auto_trigger = 1 "开启自动补全，用<C-Space>手动触发
-"显示诊断提示符号
-let g:ycm_show_diagnostics_ui = 1
-"错误提示符号,若不设置
-let g:ycm_error_symbol = '>>'
-"警告提示符号,若不设置
-let g:ycm_warning_symbol = '>'
 let g:ycm_complete_in_comments = 1 "注释时也启用补全
 let g:ycm_complete_in_strings = 1 "字符串内也启用补全
 "收集tag内的符号，ctags 需要使用 --fields=+l 选项, 默认关闭该选项
 let g:ycm_collect_identifiers_from_tags_files = 0
-"ycmd server 采用的Python解释器
+"ycmd server 采用的Python解释器,设置为安装install.py的解释器
 let g:ycm_server_python_interpreter = 'python3'
-let g:ycm_python_interpreter_path='python3'
-"let g:ycm_extra_conf_vim_data = [
-"\ 'g:ycm_python_interpreter_path'
-"\]
+"结合ycm_extra_conf.py,以下两个选项可以动态地控制Python补全相对的解释器和文件路径
+let g:ycm_python_interpreter_path = ''
+let g:ycm_python_sys_path = []
+let g:ycm_extra_conf_vim_data = [
+            \ 'g:ycm_python_interpreter_path',
+            \ 'g:ycm_python_sys_path'
+            \]
+
 "不显示预览窗口
 set completeopt-=preview
 let g:ycm_add_preview_to_completeopt = 0

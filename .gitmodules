@@ -1,6 +1,6 @@
 [submodule "tmux_config/tmux-plugins/tmux-yank"]
-	path = tmux_config/tmux-plugins/tmux-yank
+	path = bash_config/tmux-plugins/tmux-yank
 	url = https://github.com/tmux-plugins/tmux-yank.git
 [submodule "tmux_config/tmux-plugins/tmux-resurrect"]
-	path = tmux_config/tmux-plugins/tmux-resurrect
+	path = bash_config/tmux-plugins/tmux-resurrect
 	url = https://github.com/tmux-plugins/tmux-resurrect.git
