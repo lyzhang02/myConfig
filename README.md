@@ -1,7 +1,7 @@
 # myConfig  
 
 configuration files for tools  
-git clone --recursive https://github.com/lyzhang02/configs.git ~/.myConfig
+`git clone --recursive https://github.com/lyzhang02/configs.git ~/.myConfig`
 Install install [homebrew](https://brew.sh/) first.
 
 ## Bash and Plugins
