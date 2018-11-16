@@ -9,15 +9,20 @@ ln -si ~/.myConfig/vim_config/gvimrc ~/.vim/gvimrc
 cp ~/.myConfig/vim_config/ycm_extra_conf.py ~/.vim/ycm_extra_conf.py
 
 #echo $?
-sudo apt install git build-essential cmake python-dev python3-dev
+if [ $(uname) = "Linux" ]; then
+	sudo apt install git build-essential cmake python-dev python3-dev
+elif [ $(uname) = "Darwin" ]; then
+    # must use macvim and brew python
+	brew install macvim cmake
+fi
 #git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-if [ ! -d ~/.vim/plugged/vim-plug ];
-then
+if [ ! -d ~/.vim/plugged/vim-plug ]; then
     git clone https://github.com/junegunn/vim-plug.git ~/.vim/plugged/vim-plug
 else
     echo "vim-plug has been exist"
 fi
-ln -sf ~/.vim/plugged/vim-plug/plug.vim ~/.vim/autoload/plug.vim
+
+ln -si ~/.vim/plugged/vim-plug/plug.vim ~/.vim/autoload/plug.vim
 
 #git clone --recursive https://github.com/Valloric/YouCompleteMe.git ~/.vim/plugged/YouCompleteMe
 vim +PlugInstall +qall

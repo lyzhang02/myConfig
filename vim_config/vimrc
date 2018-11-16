@@ -201,7 +201,7 @@ let g:ycm_complete_in_strings = 1 "字符串内也启用补全
 "收集tag内的符号，ctags 需要使用 --fields=+l 选项, 默认关闭该选项
 let g:ycm_collect_identifiers_from_tags_files = 0
 "ycmd server 采用的Python解释器,设置为安装install.py的解释器
-let g:ycm_server_python_interpreter = 'python3'
+"let g:ycm_server_python_interpreter = 'python3'
 "结合ycm_extra_conf.py,以下两个选项可以动态地控制Python补全相对的解释器和文件路径
 let g:ycm_python_interpreter_path = ''
 let g:ycm_python_sys_path = []
