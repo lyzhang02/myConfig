@@ -12,16 +12,13 @@ What does the script do:
 
 1. bash-completions. Install it through apt or brew.
 
-2. [Submodule bash-it](https://github.com/lyzhang02/myConfig/tree/master/bash_config/bash_plugins) has been integrated.
+2. Submodule [bash-it](https://github.com/lyzhang02/myConfig/tree/master/bash_config/bash_plugins) has been integrated.
 
 3. autojump. Install it with apt or brew.
 
-3. tmux. If it is too old in the source resposity (debian 8), download the lastest release and build from source(https://github.com/tmux/tmux/wiki).
+4. tmux. If it is too old in the source resposity (debian 8), download the lastest release and build from source(https://github.com/tmux/tmux/wiki).
 
-tmux plugins:
-
-    1. [tmux-yank](https://github.com/lyzhang02/myConfig/tree/master/bash_config/bash_plugins)
-    2. [tmux-resurrect](https://github.com/lyzhang02/myConfig/tree/master/bash_config/bash_plugins)
+There are only two three tmux plugins included [tmux-yank](https://github.com/lyzhang02/myConfig/tree/master/bash_config/bash_plugins) and [tmux-resurrect](https://github.com/lyzhang02/myConfig/tree/master/bash_config/bash_plugins).
 
 ## Vim and Plugins
 
