@@ -1,8 +1,10 @@
 # myConfig  
 
-configuration files for tools  
+This resposity includes some configuration files which I used under Linux and MacOS terminal environment.
+
 `git clone --recursive https://github.com/lyzhang02/configs.git ~/.myConfig`
-Install install [homebrew](https://brew.sh/) first.
+
+If you run a macbook, [homebrew](https://brew.sh/) should be installed first when you want to install them.
 
 ## Bash and Plugins
 
