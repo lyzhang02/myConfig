@@ -1,9 +1,0 @@
-[submodule "bash_config/bash_plugins/tmux-yank"]
-	path = bash_config/bash_plugins/tmux-yank
-	url = https://github.com/tmux-plugins/tmux-yank.git
-[submodule "bash_config/bash_plugins/tmux-resurrect"]
-	path = bash_config/bash_plugins/tmux-resurrect
-	url = https://github.com/tmux-plugins/tmux-resurrect.git
-[submodule "bash_config/bash_plugins/bash-it"]
-	path = bash_config/bash_plugins/bash-it
-	url = https://github.com/Bash-it/bash-it.git
