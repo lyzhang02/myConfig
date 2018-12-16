@@ -24,4 +24,4 @@ fi
 
 bash-it enable plugin autojump
 bash-it enable completion git
-
+bash-it enable completion tmux
