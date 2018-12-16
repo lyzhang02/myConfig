@@ -11,6 +11,9 @@ fi
 
 ln -is ~/.myConfig/bash_config/tmux.conf ~/.tmux.conf
 
+git clone https://github.com/Bash-it/bash-it.git ~/.myConfig/bash_config/bash_plugins/bash-it
+git clone https://github.com/tmux-plugins/tmux-yank.git ~/.myConfig/bash_config/bash_plugins/tmux-yank
+git clone https://github.com/tmux-plugins/tmux-resurrect.git ~/.myConfig/bash_config/bash_plugins/tmux-resurrect
 bash ~/.myConfig/bash_config/bash_plugins/bash-it/install.sh
 
 if [ $(uname) == "Linux" ]; then
