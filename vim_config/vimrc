@@ -229,7 +229,7 @@ let g:ycm_key_invoke_completion = '<C-Space>'
 let g:ycm_key_detailed_diagnostics = '<leader>d'
 ".ycm_extra_conf.py 全局路径
 let g:ycm_global_ycm_extra_conf = '~/.vim/ycm_extra_conf.py'
-"载入.ycm_extra_conf.py前进行确认
+"let g:ycm_confirm_extra_conf = '1'
 "let g:ycm_extra_conf_globallist = ['~/.vim/ycm_extra_conf.py']
 "跳转到定义或声明
 nnoremap <leader>jd :YcmCompleter GoTo<CR>
@@ -271,8 +271,8 @@ let g:ctrlp_switch_buffer='Et' "当打开一个已经打开的文件时跳转过
 let g:ctrlp_tabpage_position = 'ac' "在当前标签的后面打开新标签项
 "设设置ctrlp按键, CR为在新标签内打开, 双击左键为在当前标签打开
 let g:ctrlp_prompt_mappings = {
-            \ 'AcceptSelection("e")': ['<2-LeftMouse>'],
-            \ 'AcceptSelection("t")': ['<cr>'],
+            \ 'AcceptSelection("t")': ['<2-LeftMouse>'],
+            \ 'AcceptSelection("e")': ['<cr>'],
             \ }
 
 ""delimitMate
