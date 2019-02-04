@@ -16,7 +16,6 @@ Plug 'mbbill/undotree'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter' "快速注释
 Plug 'Yggdroot/indentLine'    "缩进提示
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'addisonbean/vim-xcode-theme'
 Plug 'sickill/vim-monokai'
@@ -24,6 +23,8 @@ Plug 'fatih/vim-go'
 Plug 'Chiel92/vim-autoformat'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'tpope/vim-obsession'
+Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
+"Plug 'ctrlpvim/ctrlp.vim'
 "Plug 'tomasr/molokai' "molokai theme
 "Plug 'Raimondi/delimitMate' "括号自动补全
 "Plug 'altercation/vim-colors-solarized'   "solarized theme
@@ -88,6 +89,8 @@ set enc=utf-8
 "set fileencoding=utf-8
 "set nobackup
 
+set foldmethod=syntax
+set foldlevelstart=99
 set wildmenu " Turn on the Wild menu
 " Ignore compiled files
 set wildignore=*.o,*~,*.pyc
@@ -287,13 +290,11 @@ nnoremap <leader>s :StripWhitespace<CR>
 
 "vim-autoformat
 let g:formatterpath = [] "formatter路径, 在PATH中时不需要添加
-let g:autoformat_verbosemode = 1
+"let g:autoformat_verbosemode = 1
 let g:formatdef_goimports = '"goimports"'
 let g:formatdef_gofmt = '"gofmt"'
 let g:formatters_go = ['goimports', 'gofmt']
-"let g:autoformat_autoindent = 0 "文件类型没有formatter时, 进行缩进,tab修改,删除trailing三种基本操作
-"let g:autoformat_retab = 0
-"let g:autoformat_remove_trailing_spaces = 0
+"let g:formatdef_my_clangformat
 
 "vim-go
 let g:go_fmt_command = "goimports"
