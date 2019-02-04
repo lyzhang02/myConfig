@@ -20,7 +20,7 @@ What does the script do:
 
 4. tmux. If it is too old in the source resposity (debian 8), download the lastest release and build from source(https://github.com/tmux/tmux/wiki).
 
-There are only two three tmux plugins included [tmux-yank](https://github.com/lyzhang02/myConfig/tree/master/bash_config/bash_plugins) and [tmux-resurrect](https://github.com/lyzhang02/myConfig/tree/master/bash_config/bash_plugins).
+There are only two three tmux plugins included [tmux-yank](https://github.com/tmux-plugins/tmux-yank) and [tmux-resurrect](https://github.com/tmux-plugins/tmux-resurrect).
 
 ## Vim and Plugins
 
