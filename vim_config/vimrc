@@ -56,8 +56,8 @@ set ruler "Always show current position
 set laststatus=2 "show status line with the specific height
 
 set autoindent
-set smartindent "indentation style
-"set cindent
+"set smartindent "indentation style
+set cindent
 set cino=g0 "缩进设置 class 内部的private,protect,public,缩进0
 "set autoindent
 set backspace=indent,eol,start
@@ -70,7 +70,7 @@ set textwidth=100
 set colorcolumn=+1
 hi ColorColumn ctermbg=red
 hi ColorColumn guibg=red
-"set foldcolumn=1 " Add a bit extra margin to the left
+set foldcolumn=1 " Add a bit extra margin to the left
 
 set incsearch "单词内部搜索
 set ignorecase "Ignore case when searching
@@ -89,8 +89,6 @@ set enc=utf-8
 "set fileencoding=utf-8
 "set nobackup
 
-set foldmethod=syntax
-set foldlevelstart=99
 set wildmenu " Turn on the Wild menu
 " Ignore compiled files
 set wildignore=*.o,*~,*.pyc
@@ -290,12 +288,17 @@ nnoremap <leader>s :StripWhitespace<CR>
 
 "vim-autoformat
 let g:formatterpath = [] "formatter路径, 在PATH中时不需要添加
-"let g:autoformat_verbosemode = 1
+let g:autoformat_verbosemode = 1
 let g:formatdef_goimports = '"goimports"'
 let g:formatdef_gofmt = '"gofmt"'
 let g:formatters_go = ['goimports', 'gofmt']
-"let g:formatdef_my_clangformat
-
+let g:formatdef_cpp = '"clang-format --assume-filename=\"'.expand('%:p').'\" -style=\"{BasedOnStyle: LLVM,
+            \ AlignTrailingComments: true,
+            \ AccessModifierOffset: -4,
+            \ ColumnLimit: 100,
+            \ UseTab: Never,
+            \ IndentWidth: 4}\""'
+let g:formatters_cpp = ["cpp"]
 "vim-go
 let g:go_fmt_command = "goimports"
 
