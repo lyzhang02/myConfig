@@ -20,13 +20,15 @@ What does the script do:
 
 1. bash-completions. Install it through apt or brew.
 
-2. Submodule [bash-it](https://github.com/Bash-it/bash-it)has been integrated.
+2. Submodule [bash-it](https://github.com/Bash-it/bash-it) has been integrated.
 
 3. autojump. Install it with apt or brew.
 
 4. tmux. If it is too old in the source resposity (debian 8), download the lastest release and build from source(<https://github.com/tmux/tmux/wiki>).
 
-5. oh-my-zsh. Install oh-my-zsh with option "--zsh".
+5. [the_silver_searcher](https://github.com/ggreer/the_silver_searcher). A code-searching tool with a focus on speed.
+
+6. oh-my-zsh. Install oh-my-zsh with option "--zsh".
 
 There are only two tmux plugins included now: [tmux-yank](https://github.com/tmux-plugins/tmux-yank) and [tmux-resurrect](https://github.com/tmux-plugins/tmux-resurrect).
 
