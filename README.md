@@ -53,6 +53,6 @@ The plugins are list here:
 15. [vim-tmux-navigator](https://github.com/christoomey/vim-tmux-navigator). Seamless navigation between tmux panes and vim splits.
 16. [LeaderF](https://github.com/Yggdroot/LeaderF). An asynchronous fuzzy finder which is used to quickly locate files, buffers, mrus, tags, etc.
 
-If you are using golang and want the plugin [vim-go](https://github.com/fatih/vim-go) to works well, also run the [golang.sh] (https://github.com/lyzhang02/myConfig/tree/master/vim_config/golang.sh) before execute command :GoInstallBinaries in vim to install the go packages which can't be downloaded because of te GFW.
+If you are using golang and want the plugin [vim-go](https://github.com/fatih/vim-go) to works well, also run the [golang.sh](https://github.com/lyzhang02/myConfig/tree/master/vim_config/golang.sh) before execute command `:GoInstallBinaries` in vim to install the go packages which can't be downloaded because of te GFW.
 
 The details about the vim plugins included and configuration are list in the [vimrc](https://github.com/lyzhang02/myConfig/tree/master/vim_config/vimrc).
