@@ -28,7 +28,7 @@ What does the script do:
 
 5. [the_silver_searcher](https://github.com/ggreer/the_silver_searcher). A code-searching tool with a focus on speed.
 
-6. oh-my-zsh. Install oh-my-zsh with option "--zsh".
+6. [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh). Install oh-my-zsh with option "--zsh".
 
 There are only two tmux plugins included now: [tmux-yank](https://github.com/tmux-plugins/tmux-yank) and [tmux-resurrect](https://github.com/tmux-plugins/tmux-resurrect).
 
