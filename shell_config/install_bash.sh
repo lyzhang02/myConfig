@@ -9,7 +9,10 @@ else
 	return 1
 fi
 
-git clone https://github.com/Bash-it/bash-it.git ~/.myConfig/shell_config/shell_plugins/bash-it
+if [ ! -d "$MY_CONFIG_HOME/shell_plugins/bash-it" ]
+then
+    git clone https://github.com/Bash-it/bash-it.git ~/.myConfig/shell_config/shell_plugins/bash-it
+fi
 bash ~/.myConfig/shell_config/shell_plugins/bash-it/install.sh
 
 if [ $(uname) == "Linux" ]; then

@@ -30,6 +30,7 @@ vim +PlugInstall +qall
 #YouCompleteMe
 if [ -d ~/.vim/plugged/YouCompleteMe ]; then
     cd ~/.vim/plugged/YouCompleteMe
+    echo "install YouCompleteMe start"
     python3 install.py --go-completer --clang-completer #--system-libclang
 else
     echo "YouCompleteMe Fail"

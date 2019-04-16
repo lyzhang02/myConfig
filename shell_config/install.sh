@@ -9,13 +9,23 @@ else
     return 1
 fi
 
-ln -is ~/.myConfig/shell_config/tmux.conf ~/.tmux.conf
-git clone https://github.com/tmux-plugins/tmux-yank.git ~/.myConfig/shell_config/shell_plugins/tmux-yank
-git clone https://github.com/tmux-plugins/tmux-resurrect.git ~/.myConfig/shell_config/shell_plugins/tmux-resurrect
+export MY_CONFIG_HOME="$HOME/.myConfig/shell_config"
+ln -is  "$BASE_HOME/tmux.conf" ~/tmux.conf
 
-#if [ $# -eq 0 -o "$1" == "--bash" ]; then
-    #bash install_bash.sh
-#else
-    #bash install_zsh.sh
-#fi
+if [ ! -d "$BASE_HOME/shell_plugins/tmux-yank" ]
+then
+    echo "NO"
+    git clone https://github.com/tmux-plugins/tmux-yank.git ~/.myConfig/shell_config/shell_plugins/tmux-yank
+fi
+
+if [ ! -d "$BASE_HOME/shell_plugins/tmux-resurrect" ]
+then
+    git clone https://github.com/tmux-plugins/tmux-resurrect.git ~/.myConfig/shell_config/shell_plugins/tmux-resurrect
+fi
+
+if [ $# -eq 0 -o "$1" == "--bash" ]; then
+    bash install_bash.sh
+else
+    bash install_zsh.sh
+fi
 
