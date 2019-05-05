@@ -28,13 +28,14 @@ ln -si ~/.vim/plugged/vim-plug/plug.vim ~/.vim/autoload/plug.vim
 vim +PlugInstall +qall
 
 #YouCompleteMe
-if [ -d ~/.vim/plugged/YouCompleteMe ]; then
-    cd ~/.vim/plugged/YouCompleteMe
-    echo "install YouCompleteMe start"
-    python3 install.py --go-completer --clang-completer #--system-libclang
-else
-    echo "YouCompleteMe Fail"
-fi
+#Use system python3 to compile. See https://github.com/Valloric/YouCompleteMe/#ycm-does-not-work-with-my-anaconda-python-setup
+#if [ -d ~/.vim/plugged/YouCompleteMe ]; then
+    #cd ~/.vim/plugged/YouCompleteMe
+    #echo "install YouCompleteMe start"
+    #python3 install.py --go-completer --clang-completer #--system-libclang
+#else
+    #echo "YouCompleteMe Fail"
+#fi
 
 #vim-go
 #vim +GoInstallBinaries
