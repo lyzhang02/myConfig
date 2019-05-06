@@ -10,17 +10,17 @@ else
 fi
 
 export MY_CONFIG_HOME="$HOME/.myConfig/shell_config"
-ln -is  "$BASE_HOME/tmux.conf" ~/tmux.conf
+ln -is  "$MY_CONFIG_HOME/tmux.conf" ~/.tmux.conf
 
-if [ ! -d "$BASE_HOME/shell_plugins/tmux-yank" ]
+if [ ! -d "$MY_CONFIG_HOME/shell_plugins/tmux-yank" ]
 then
     echo "NO"
-    git clone https://github.com/tmux-plugins/tmux-yank.git ~/.myConfig/shell_config/shell_plugins/tmux-yank
+    git clone https://github.com/tmux-plugins/tmux-yank.git $MY_CONFIG_HOME/shell_plugins/tmux-yank
 fi
 
-if [ ! -d "$BASE_HOME/shell_plugins/tmux-resurrect" ]
+if [ ! -d "$MY_CONFIG_HOME/shell_plugins/tmux-resurrect" ]
 then
-    git clone https://github.com/tmux-plugins/tmux-resurrect.git ~/.myConfig/shell_config/shell_plugins/tmux-resurrect
+    git clone https://github.com/tmux-plugins/tmux-resurrect.git $MY_CONFIG_HOME/shell_plugins/tmux-resurrect
 fi
 
 if [ $# -eq 0 -o "$1" == "--bash" ]; then
