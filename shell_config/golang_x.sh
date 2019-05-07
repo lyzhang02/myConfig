@@ -46,3 +46,10 @@ then
 else
     cd $GOLANGX/sys && git pull -r
 fi
+
+if [ ! -d $GOLANGX/sync ]
+then
+    git clone https://github.com/golang/sync.git $GOLANGX/sync
+else
+    cd $GOLANGX/sync && git pull -r
+fi
