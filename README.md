@@ -32,6 +32,14 @@ What does the script do:
 
 There are only two tmux plugins included now: [tmux-yank](https://github.com/tmux-plugins/tmux-yank) and [tmux-resurrect](https://github.com/tmux-plugins/tmux-resurrect).
 
+## SDK
+
+### go
+
+Packages in golang.org can't be downloaded in China mainland because of the GFW. 
+The bash script [golang_x.sh](https://github.com/lyzhang02/myConfig/tree/master/shell_config/golang_x.sh) can install
+some source code in `$GOPATH`.
+
 ## Vim
 
 Run the shell script [install_vimrc.sh](https://github.com/lyzhang02/myConfig/tree/master/vim_config/install_vimrc.sh) to install vim plugins.
@@ -55,6 +63,6 @@ The plugins are list here:
 15. [vim-tmux-navigator](https://github.com/christoomey/vim-tmux-navigator). Seamless navigation between tmux panes and vim splits.
 16. [LeaderF](https://github.com/Yggdroot/LeaderF). An asynchronous fuzzy finder which is used to quickly locate files, buffers, mrus, tags, etc.
 
-If you are using golang and want the plugin [vim-go](https://github.com/fatih/vim-go) to works well, also run the [golang.sh](https://github.com/lyzhang02/myConfig/tree/master/vim_config/golang.sh) before execute command `:GoInstallBinaries` in vim to install the go packages which can't be downloaded because of te GFW.
+If you are using golang and want the plugin [vim-go](https://github.com/fatih/vim-go) to works well, also run the [golang_x.sh](https://github.com/lyzhang02/myConfig/tree/master/shell_config/golang_x.sh) before execute command `:GoInstallBinaries` in vim to install extra go packages which can't be downloaded because of te GFW.
 
 The details about the vim plugins included and configuration are list in the [vimrc](https://github.com/lyzhang02/myConfig/tree/master/vim_config/vimrc).
