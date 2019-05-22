@@ -12,8 +12,8 @@ fi
 if [ ! -d "$MY_CONFIG_HOME/shell_plugins/bash-it" ]
 then
     git clone https://github.com/Bash-it/bash-it.git ~/.myConfig/shell_config/shell_plugins/bash-it
+    bash ~/.myConfig/shell_config/shell_plugins/bash-it/install.sh
 fi
-bash ~/.myConfig/shell_config/shell_plugins/bash-it/install.sh
 
 if [ $(uname) == "Linux" ]; then
 	source ~/.bashrc

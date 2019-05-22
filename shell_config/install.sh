@@ -10,7 +10,13 @@ else
 fi
 
 export MY_CONFIG_HOME="$HOME/.myConfig/shell_config"
-ln -is  "$MY_CONFIG_HOME/tmux.conf" ~/.tmux.conf
+
+if [ "$(tmux -V 2> /dev/null)" \> "tmux 2.7" ]
+then 
+    ln -is  "$MY_CONFIG_HOME/tmux.conf" ~/.tmux.conf
+else
+    echo "Error: no tmux found or tmux version is too old"
+fi
 
 if [ ! -d "$MY_CONFIG_HOME/shell_plugins/tmux-yank" ]
 then
