@@ -4,9 +4,9 @@
 mkdir -p ~/.vim/autoload 2> /dev/null
 mkdir -p ~/.vim/plugged 2> /dev/null
 
-ln -si ~/.myConfig/vim_config/vimrc ~/.vim/vimrc
-ln -si ~/.myConfig/vim_config/gvimrc ~/.vim/gvimrc
-cp ~/.myConfig/vim_config/ycm_extra_conf.py ~/.vim/ycm_extra_conf.py
+cp -i ~/.myConfig/vim_config/vimrc ~/.vim/vimrc
+cp -i ~/.myConfig/vim_config/gvimrc ~/.vim/gvimrc
+cp -i ~/.myConfig/vim_config/ycm_extra_conf.py ~/.vim/ycm_extra_conf.py
 
 #echo $?
 if [ $(uname) = "Linux" ]; then

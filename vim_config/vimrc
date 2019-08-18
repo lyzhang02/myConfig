@@ -288,8 +288,11 @@ nnoremap <leader>s :StripWhitespace<CR>
 "nnoremap <F8> :TagbarToggle<CR>
 
 "vim-autoformat
-let g:formatterpath = [] "formatter路径, 在PATH中时不需要添加
+let g:autoformat_autoindent = 0
+let g:autoformat_retab = 0
+let g:autoformat_remove_trailing_spaces = 0
 let g:autoformat_verbosemode = 1
+let g:formatterpath = [] "formatter路径, 在PATH中时不需要添加
 let g:formatdef_goimports = '"goimports"'
 let g:formatdef_gofmt = '"gofmt"'
 let g:formatters_go = ['goimports', 'gofmt']
@@ -300,6 +303,7 @@ let g:formatdef_cpp = '"clang-format --assume-filename=\"'.expand('%:p').'\" -st
             "\ UseTab: Never,
             "\ IndentWidth: 2}\""'
 let g:formatters_cpp = ["cpp"]
+let g:formatters_python = ["autopep8"]
 "vim-go
 let g:go_fmt_command = "goimports"
 
