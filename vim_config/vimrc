@@ -68,6 +68,7 @@ set shiftwidth=4    "缩进宽度4空格
 set showtabline=1
 set textwidth=120
 set colorcolumn=+1
+autocmd FileType cpp,c setlocal et sta sw=2 sts=2
 hi ColorColumn ctermbg=red
 hi ColorColumn guibg=red
 set foldcolumn=1 " Add a bit extra margin to the left
@@ -292,12 +293,12 @@ let g:autoformat_verbosemode = 1
 let g:formatdef_goimports = '"goimports"'
 let g:formatdef_gofmt = '"gofmt"'
 let g:formatters_go = ['goimports', 'gofmt']
-let g:formatdef_cpp = '"clang-format --assume-filename=\"'.expand('%:p').'\" -style=\"{BasedOnStyle: LLVM,
-            \ AlignTrailingComments: true,
-            \ AccessModifierOffset: -4,
-            \ ColumnLimit: 100,
-            \ UseTab: Never,
-            \ IndentWidth: 4}\""'
+let g:formatdef_cpp = '"clang-format --assume-filename=\"'.expand('%:p').'\" -style=\"{BasedOnStyle: LLVM}\""'
+            "\ AlignTrailingComments: true,
+            "\ AccessModifierOffset: -4,
+            "\ ColumnLimit: 120,
+            "\ UseTab: Never,
+            "\ IndentWidth: 2}\""'
 let g:formatters_cpp = ["cpp"]
 "vim-go
 let g:go_fmt_command = "goimports"
