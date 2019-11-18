@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ $(uname) == "Linux" ]; then
-    sudo apt install git tmux autojump silversearcher-ag
+    sudo apt install git autojump silversearcher-ag
 elif [ $(uname) == "Darwin" ]; then
     brew install git tmux autojump the_silver_searcher
 else
@@ -16,6 +16,7 @@ then
     ln -is  "$MY_CONFIG_HOME/tmux.conf" ~/.tmux.conf
 else
     echo "Error: no tmux found or tmux version is too old"
+    return 1
 fi
 
 if [ ! -d "$MY_CONFIG_HOME/shell_plugins/tmux-yank" ]
