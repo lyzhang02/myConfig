@@ -1,8 +1,4 @@
-# missing _ctypes
-sudo apt install libffi-dev
-# missing sqlite
-sudo apt install libsqlite3-dev
-
+# https://devguide.python.org/setup/#build-dependencies#
 ./configure --enable-optimazations --enable-shared
 sudo make -j 8
 sudo make altinstall
