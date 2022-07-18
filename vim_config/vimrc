@@ -6,7 +6,7 @@ filetype off                  " required
 call plug#begin('~/.vim/plugged')
 
 Plug 'junegunn/vim-plug'
-"Plug 'Valloric/YouCompleteMe'
+Plug 'Valloric/YouCompleteMe'
 Plug 'luochen1990/rainbow' "括号彩色配对
 Plug 'jiangmiao/auto-pairs'
 Plug 'vim-airline/vim-airline'
@@ -24,6 +24,7 @@ Plug 'Chiel92/vim-autoformat'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'tpope/vim-obsession'
 Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
+Plug 'junegunn/goyo.vim'
 "Plug 'ctrlpvim/ctrlp.vim'
 "Plug 'tomasr/molokai' "molokai theme
 "Plug 'Raimondi/delimitMate' "括号自动补全
@@ -102,9 +103,6 @@ endif
 " Super useful! From an idea by Michael Naumann. Search the word under the curser use * or # in visual mode
 vnoremap <silent> * :<C-u>call VisualSelection('', '')<CR>/<C-R>=@/<CR><CR>
 vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
-" Copy to system clipboard
-vnoremap <C-y> "+y
-nnoremap <C-p> "+p
 
 nnoremap <leader>te :tabnew<CR>
 nnoremap <leader>tn :tabn<CR>
@@ -217,6 +215,11 @@ let g:ycm_extra_conf_vim_data = [
 
 "不显示预览窗口
 set completeopt-=preview
+let g:ycm_filetype_specific_completion_to_disable = {
+            \ 'gitcommit':1,
+            \ 'go':1,
+            \}
+
 let g:ycm_add_preview_to_completeopt = 0
 "用户选择提供的候选补全项，自动关闭预览窗口
 let g:ycm_autoclose_preview_window_after_completion = 1
@@ -318,6 +321,8 @@ let g:go_metalinter_autosave = 1
 let g:go_metalinter_enabled = ['all', '-U1000']
 let g:go_metalinter_autosave_enabled = ['all', '-U1000']
 
+"goyo
+"let g:goyo_width = 90
 "ctags
 "CTRL-] 跳转到定义处
 "CTRL-T 跳回来
