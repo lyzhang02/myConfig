@@ -6,7 +6,7 @@ filetype off                  " required
 call plug#begin('~/.vim/plugged')
 
 Plug 'junegunn/vim-plug'
-Plug 'Valloric/YouCompleteMe'
+"Plug 'Valloric/YouCompleteMe'
 Plug 'luochen1990/rainbow' "括号彩色配对
 Plug 'jiangmiao/auto-pairs'
 Plug 'vim-airline/vim-airline'
@@ -102,6 +102,9 @@ endif
 " Super useful! From an idea by Michael Naumann. Search the word under the curser use * or # in visual mode
 vnoremap <silent> * :<C-u>call VisualSelection('', '')<CR>/<C-R>=@/<CR><CR>
 vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
+" Copy to system clipboard
+vnoremap <C-y> "+y
+nnoremap <C-p> "+p
 
 nnoremap <leader>te :tabnew<CR>
 nnoremap <leader>tn :tabn<CR>
@@ -306,6 +309,14 @@ let g:formatters_cpp = ["cpp"]
 let g:formatters_python = ["autopep8"]
 "vim-go
 let g:go_fmt_command = "goimports"
+"let g:go_diagnostics_enabled = 1
+let g:go_diagnostics_level = 2
+let g:go_highlight_diagnostic_errors = 1
+let g:go_highlight_diagnostic_warnings = 1
+"let g:go_metalinter_command = 'staticcheck'
+let g:go_metalinter_autosave = 1
+let g:go_metalinter_enabled = ['all', '-U1000']
+let g:go_metalinter_autosave_enabled = ['all', '-U1000']
 
 "ctags
 "CTRL-] 跳转到定义处
