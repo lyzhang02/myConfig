@@ -313,13 +313,14 @@ let g:formatters_python = ["autopep8"]
 "vim-go
 let g:go_fmt_command = "goimports"
 "let g:go_diagnostics_enabled = 1
-let g:go_diagnostics_level = 2
-let g:go_highlight_diagnostic_errors = 1
-let g:go_highlight_diagnostic_warnings = 1
-"let g:go_metalinter_command = 'staticcheck'
-let g:go_metalinter_autosave = 1
-let g:go_metalinter_enabled = ['all', '-U1000']
-let g:go_metalinter_autosave_enabled = ['all', '-U1000']
+"let g:go_diagnostics_level = 2
+"let g:go_highlight_diagnostic_errors = 1
+"let g:go_highlight_diagnostic_warnings = 1
+"let g:go_metalinter_command = 'golangci-lint'
+"let g:go_debug=['shell-commands']
+"let g:go_metalinter_autosave = 1
+"let g:go_metalinter_enabled = ['all', '-U1000']
+"let g:go_metalinter_autosave_enabled = ['all', '-U1000']
 
 "goyo
 "let g:goyo_width = 90
