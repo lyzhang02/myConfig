@@ -15,15 +15,15 @@ Plug 'notpratheek/vim-luna'   "luna theme
 Plug 'mbbill/undotree'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter' "快速注释
-Plug 'Yggdroot/indentLine'    "缩进提示
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'addisonbean/vim-xcode-theme'
 Plug 'sickill/vim-monokai'
 Plug 'fatih/vim-go'
-Plug 'Chiel92/vim-autoformat'
+"Plug 'Chiel92/vim-autoformat'
+Plug 'vim-autoformat/vim-autoformat'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'tpope/vim-obsession'
-Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
+Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
 Plug 'junegunn/goyo.vim'
 "Plug 'ctrlpvim/ctrlp.vim'
 "Plug 'tomasr/molokai' "molokai theme
@@ -55,6 +55,8 @@ set number  "显示行号
 set so=7 "Set 7 lines to the cursor, when moving vertically using j/k
 set ruler "Always show current position
 set laststatus=2 "show status line with the specific height
+
+set list lcs=tab:\|\ "here is a trailing space. show the indentation with tabs"
 
 set autoindent
 "set smartindent "indentation style
@@ -252,12 +254,6 @@ let g:ycm_collect_identifiers_from_tags_files=1
 "let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme ='luna'
-
-"indentLine
-let g:indentLine_setColors = 0
-let g:indentLine_enabled = 1
-"let g:indentLine_fileType = []
-"let g:indentLine_fileTypeExclude = []
 
 ""color_coded
 "let g:color_coded_enabled = 1
